@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getUser } from './services/fetch-utils';
-import {
-  BrowserRouter as Router,
-  Switch,
-  NavLink,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, NavLink, Route, Redirect } from 'react-router-dom';
 import AuthPage from './AuthPage';
 import DetailPage from './DetailPage';
 import ListPage from './ListPage';
@@ -17,19 +11,38 @@ import { logout } from './services/fetch-utils';
 
 export default function App() {
   // You'll need to track the user in state
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState(getUser().access_token);
 
   // add a useEffect to get the user and inject the user object into state on load
+  useEffect(() => {
+    const user = getUser();
+
+    if (user) {
+      setToken(user.access_token);
+      setEmail(user.user.email);
+    }
+  }, []);
 
   async function handleLogout() {
     // call the logout function
     // clear the user in state
+    await logout();
+    setEmail('');
+    setToken('');
   }
 
   return (
     <Router>
-      <div className='App'>
+      <div className="App">
         <header>
           {/* if there is a user in state, render out a link to the board games list, the create page, and add a button to let the user logout */}
+          <li>
+            <NavLink to="/">Home Page</NavLink>
+            <p>{email}</p>
+            <p>{token}</p>
+            <button onClick={handleLogout}>LogOut</button>
+          </li>
         </header>
         <main>
           <Switch>
