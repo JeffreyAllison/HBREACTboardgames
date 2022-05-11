@@ -42,3 +42,9 @@ export async function getGameById(id) {
 
   return checkError(response);
 }
+
+export async function updateGame(id, newGame) {
+  const response = await client.from('neighborhoods').update(newGame).match({ id });
+
+  return checkError(response);
+}
