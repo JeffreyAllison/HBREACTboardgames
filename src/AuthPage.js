@@ -5,11 +5,8 @@ export default function AuthPage({ setEmail, setToken }) {
   // you'll need to track the form state of the email and password
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
-
-  const [{ email: signInEmail, password: signInPassword }, setSignInFormData] = useState({
-    email: '',
-    password: '',
-  });
+  const [signInEmail, setSignInEmail] = useState('');
+  const [signInPassword, setSignInPassword] = useState('');
 
   async function handleSignIn(e) {
     e.preventDefault();
@@ -22,6 +19,8 @@ export default function AuthPage({ setEmail, setToken }) {
       access_token,
       user: { email },
     } = getUser();
+    setEmail(email);
+    setToken(access_token);
   }
 
   async function handleSignUp(e) {
@@ -43,20 +42,35 @@ export default function AuthPage({ setEmail, setToken }) {
         <em>Boardzo</em>
       </h1>
       {/* on submit, sign the user in using the function defined above */}
-      <form>
+      <form onSubmit={handleSignUp}>
+        <h3>Sign Up</h3>
         <label>
           Email
           {/* on change, update the form state for email */}
-          <input required type="email" name="email" />
+          <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
         </label>
         <label>
           Password
           {/* on change, update the form state for password */}
-          <input required type="password" name="password" />
+          <input value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
         </label>
-        <button>Sign In</button>
+        <button>Sign Up</button>
         {/* on clicking sign up, sign the user up using the function defined above */}
-        <button type="button">Sign Up</button>
+      </form>
+      <form onSubmit={handleSignIn}>
+        <h3>Sign In</h3>
+        <label>
+          Email
+          {/* on change, update the form state for email */}
+          <input value={signInEmail} onChange={(e) => setSignInEmail(e.target.value)} />
+        </label>
+        <label>
+          Password
+          {/* on change, update the form state for password */}
+          <input value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)} />
+        </label>
+        <button>Sign Up</button>
+        {/* on clicking sign up, sign the user up using the function defined above */}
       </form>
     </div>
   );
