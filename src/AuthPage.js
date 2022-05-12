@@ -69,7 +69,7 @@ export default function AuthPage({ setEmail, setToken }) {
           {/* on change, update the form state for password */}
           <input value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)} />
         </label>
-        <button>Sign Up</button>
+        <button>Sign In</button>
         {/* on clicking sign up, sign the user up using the function defined above */}
       </form>
     </div>

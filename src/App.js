@@ -58,7 +58,7 @@ export default function App() {
                   to="/board-games/:id"
                   className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
                 >
-                  Update
+                  Update games
                 </NavLink>
               </li>
               <li>

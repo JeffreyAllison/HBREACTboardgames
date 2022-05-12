@@ -40,6 +40,7 @@ export default function CreatePage() {
                 title: e.target.value,
               })
             }
+            name="title"
           />
         </label>
         <label>
@@ -53,6 +54,7 @@ export default function CreatePage() {
               })
             }
             value={gameInTheForm.genre}
+            name="genre"
           >
             <option>Tile-laying</option>
             <option>Economic</option>
@@ -75,6 +77,7 @@ export default function CreatePage() {
                 designer: e.target.value,
               })
             }
+            name="designer"
           />
         </label>
         <label>
@@ -89,6 +92,7 @@ export default function CreatePage() {
                 min_players: e.target.value,
               })
             }
+            name="min_players"
           />
         </label>
         <label>
@@ -103,6 +107,7 @@ export default function CreatePage() {
                 max_players: e.target.value,
               })
             }
+            name="max_players"
           />
         </label>
         <label>
@@ -117,6 +122,7 @@ export default function CreatePage() {
                 description: e.target.value,
               })
             }
+            name="description"
           />
         </label>
         <button>Create game</button>
