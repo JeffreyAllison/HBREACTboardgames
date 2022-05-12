@@ -79,7 +79,7 @@ export default function App() {
               )}
             </Route>
             <Route exact path="/board-games">
-              Click a game to update it
+              Click a game to update your game inventory
               {/* if there is a user, render the board games list. Otherwise, redirect to the home route/auth page */}
               {token ? <ListPage /> : <Redirect to="/" />}
             </Route>
