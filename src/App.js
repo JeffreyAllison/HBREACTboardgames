@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from 'react';
 import { getUser, logout } from './services/fetch-utils';
 import { BrowserRouter as Router, Switch, NavLink, Route, Redirect } from 'react-router-dom';
@@ -55,14 +56,6 @@ export default function App() {
               </li>
               <li>
                 <NavLink
-                  to="/board-games/:id"
-                  className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
-                >
-                  Update games
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to="/board-games"
                   className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
                 >
@@ -70,8 +63,6 @@ export default function App() {
                 </NavLink>
               </li>
               <li>
-                <p>{email}</p>
-                <p>{token}</p>
                 <button onClick={handleLogout}>LogOut</button>
               </li>
             </ul>
@@ -88,6 +79,7 @@ export default function App() {
               )}
             </Route>
             <Route exact path="/board-games">
+              Click a game to update it
               {/* if there is a user, render the board games list. Otherwise, redirect to the home route/auth page */}
               {token ? <ListPage /> : <Redirect to="/" />}
             </Route>

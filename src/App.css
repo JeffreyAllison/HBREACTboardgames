@@ -25,7 +25,6 @@ a {
 
 .App header a {
   margin: 10px;
-  background-color: white;
   border-radius: 20px;
   padding: 15px;
   cursor: pointer;
@@ -98,4 +97,5 @@ ul {
   margin: 0px;
   flex-direction: row;
   flex-wrap: wrap;
+  display: flex;
 }

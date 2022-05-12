@@ -10,14 +10,14 @@ export default function CreatePage() {
     genre: '',
     designer: '',
     description: '',
-    minPlayers: 0,
-    maxPlayers: 0,
+    min_players: 0,
+    max_players: 0,
   });
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    await createGame(setGameInTheForm);
+    await createGame(gameInTheForm);
 
     // use history.push to send the user to the list page
     history.push('/board-games');

@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getGameById, updateGame } from './services/fetch-utils';
 import { useHistory, useParams } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.production.min';
 
 export default function UpdatePage() {
   // you'll need the history hook from react-router-dom to do your redirecting in the handleSubmit
@@ -12,8 +11,8 @@ export default function UpdatePage() {
     genre: '',
     designer: '',
     description: '',
-    minPlayers: 0,
-    maxPlayers: 0,
+    min_players: 0,
+    max_players: 0,
   });
 
   useEffect(() => {
@@ -51,6 +50,7 @@ export default function UpdatePage() {
                 title: e.target.value,
               })
             }
+            name="title"
           />
         </label>
         <label>
@@ -64,6 +64,7 @@ export default function UpdatePage() {
               })
             }
             value={gameInTheForm.genre}
+            name="genre"
           >
             <option>Tile-laying</option>
             <option>Economic</option>
@@ -86,6 +87,7 @@ export default function UpdatePage() {
                 designer: e.target.value,
               })
             }
+            name="designer"
           />
         </label>
         <label>
@@ -100,6 +102,7 @@ export default function UpdatePage() {
                 min_players: e.target.value,
               })
             }
+            name="min_players"
           />
         </label>
         <label>
@@ -114,6 +117,7 @@ export default function UpdatePage() {
                 max_players: e.target.value,
               })
             }
+            name="max_players"
           />
         </label>
         <label>
@@ -128,6 +132,7 @@ export default function UpdatePage() {
                 description: e.target.value,
               })
             }
+            name="description"
           />
         </label>
         <button>Update game</button>
