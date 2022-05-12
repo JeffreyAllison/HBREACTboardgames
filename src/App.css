@@ -89,15 +89,12 @@ select {
   align-items: center;
 }
 
-.game {
-}
-
 .detail {
   width: 60%;
   margin: 0 auto;
 }
 
-.nav-link-active .nav-link-unselected {
+ul {
   margin: 0px;
   flex-direction: row;
   flex-wrap: wrap;

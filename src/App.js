@@ -33,47 +33,49 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <header className="links">
+        <header className="">
           {/* if there is a user in state, render out a link to the board games list, the create page, and add a button to let the user logout */}
-          <ul>
-            <li>
-              <NavLink
-                to="/"
-                className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/create"
-                className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
-              >
-                Create
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/board-games/:id"
-                className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
-              >
-                Update
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/board-games"
-                className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
-              >
-                List{' '}
-              </NavLink>
-            </li>
-            <li>
-              <p>{email}</p>
-              <p>{token}</p>
-              <button onClick={handleLogout}>LogOut</button>
-            </li>
-          </ul>
+          <nav>
+            <ul>
+              <li>
+                <NavLink
+                  to="/"
+                  className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/create"
+                  className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
+                >
+                  Create
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/board-games/:id"
+                  className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
+                >
+                  Update
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/board-games"
+                  className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
+                >
+                  List{' '}
+                </NavLink>
+              </li>
+              <li>
+                <p>{email}</p>
+                <p>{token}</p>
+                <button onClick={handleLogout}>LogOut</button>
+              </li>
+            </ul>
+          </nav>
         </header>
         <main>
           <Switch>
