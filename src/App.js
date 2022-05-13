@@ -59,7 +59,7 @@ export default function App() {
                   to="/board-games"
                   className={(isActive) => 'nav-link' + (!isActive ? ' unselected' : '')}
                 >
-                  List{' '}
+                  List
                 </NavLink>
               </li>
               <li>
